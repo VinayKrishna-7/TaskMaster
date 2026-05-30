@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+TaskMaster Pro V2
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+🚀
+</div>
+
+<div>
+
+<h2>
+TaskMaster
+</h2>
+
+<p>
+Productivity Pro
+</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<button
+class="menu-btn active"
+data-view="dashboard">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</button>
+
+<button
+class="menu-btn"
+data-view="tasks">
+
+<i class="fa-solid fa-list-check"></i>
+
+Tasks
+
+</button>
+
+<button
+class="menu-btn"
+data-view="calendar">
+
+<i class="fa-solid fa-calendar"></i>
+
+Calendar
+
+</button>
+
+<button
+class="menu-btn"
+data-view="analytics">
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Analytics
+
+</button>
+
+<button
+class="menu-btn"
+data-view="settings">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</button>
+
+</nav>
+
+<div class="sidebar-footer">
+
+<div class="productivity-score">
+
+<span>
+Productivity
+</span>
+
+<h3 id="productivityScore">
+0%
+</h3>
+
+</div>
+
+</div>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+<div>
+
+<h1 id="greeting">
+
+Good Morning 👋
+
+</h1>
+
+<p>
+
+Let's get things done today
+
+</p>
+
+</div>
+
+<div class="top-actions">
+
+<div class="search-box">
+
+<i class="fa-solid fa-search"></i>
+
+<input
+id="searchInput"
+placeholder="Search tasks...">
+
+</div>
+
+<button id="themeToggle">
+
+🌙
+
+</button>
+
+</div>
+
+</header>
+
+<!-- DASHBOARD -->
+
+<section id="dashboardView">
+
+<!-- STATS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<div class="stat-icon blue">
+
+<i class="fa-solid fa-list-check"></i>
+
+</div>
+
+<div>
+
+<h2 id="totalTasks">
+0
+</h2>
+
+<p>
+Total Tasks
+</p>
+
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon green">
+
+<i class="fa-solid fa-check"></i>
+
+</div>
+
+<div>
+
+<h2 id="completedTasks">
+0
+</h2>
+
+<p>
+Completed
+</p>
+
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon orange">
+
+<i class="fa-solid fa-clock"></i>
+
+</div>
+
+<div>
+
+<h2 id="pendingTasks">
+0
+</h2>
+
+<p>
+Pending
+</p>
+
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon red">
+
+<i class="fa-solid fa-fire"></i>
+
+</div>
+
+<div>
+
+<h2 id="streakCount">
+0
+</h2>
+
+<p>
+Day Streak
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PROGRESS -->
+
+<div class="dashboard-row">
+
+<div class="progress-card">
+
+<div class="card-header">
+
+<h3>
+Weekly Progress
+</h3>
+
+<span id="progressPercent">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+
+</div>
+
+</div>
+
+<div class="chart-placeholder">
+
+📈 Productivity Trend
+
+</div>
+
+</div>
+
+<div class="focus-card">
+
+<h3>
+Today's Focus
+</h3>
+
+<div id="focusTasks">
+
+No high-priority tasks
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TASK VIEW -->
+
+<section
+id="tasksView"
+class="hidden">
+
+<div class="task-toolbar">
+
+<select id="filterStatus">
+
+<option value="all">
+All Tasks
+</option>
+
+<option value="active">
+Active
+</option>
+
+<option value="completed">
+Completed
+</option>
+
+<option value="high">
+High Priority
+</option>
+
+</select>
+
+<select id="filterCategory">
+
+<option value="all">
+All Categories
+</option>
+
+<option value="Work">
+Work
+</option>
+
+<option value="Personal">
+Personal
+</option>
+
+<option value="Study">
+Study
+</option>
+
+<option value="Shopping">
+Shopping
+</option>
+
+</select>
+
+<button id="exportTasks">
+
+Export
+
+</button>
+
+</div>
+
+<div id="taskBoard">
+
+<ul id="taskList">
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- CALENDAR -->
+
+<section
+id="calendarView"
+class="hidden">
+
+<div class="page-card">
+
+<h2>
+Calendar
+</h2>
+
+<p>
+
+Upcoming tasks and deadlines
+
+</p>
+
+<div id="calendarTasks">
+
+No events
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ANALYTICS -->
+
+<section
+id="analyticsView"
+class="hidden">
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+
+<h3>
+Completion Rate
+</h3>
+
+<h1 id="completionRate">
+0%
+</h1>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+Overdue Tasks
+</h3>
+
+<h1 id="overdueCount">
+0
+</h1>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+Categories Used
+</h3>
+
+<h1 id="categoryCount">
+0
+</h1>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SETTINGS -->
+
+<section
+id="settingsView"
+class="hidden">
+
+<div class="page-card">
+
+<h2>
+Settings
+</h2>
+
+<button id="clearCompleted">
+
+Clear Completed
+
+</button>
+
+<button id="clearAllTasks">
+
+Delete All Tasks
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- FLOATING ACTION BUTTON -->
+
+<button id="fab">
+
+<i class="fa-solid fa-plus"></i>
+
+</button>
+
+<!-- TASK MODAL -->
+
+<div
+class="modal"
+id="taskModal">
+
+<div class="modal-content">
+
+<h2>
+Create Task
+</h2>
+
+<form id="taskForm">
+
+<input
+id="taskTitle"
+placeholder="Task title"
+required>
+
+<textarea
+id="taskDescription"
+placeholder="Description">
+</textarea>
+
+<select id="taskCategory">
+
+<option>
+Work
+</option>
+
+<option>
+Personal
+</option>
+
+<option>
+Study
+</option>
+
+<option>
+Shopping
+</option>
+
+</select>
+
+<select id="taskPriority">
+
+<option value="low">
+Low
+</option>
+
+<option value="medium">
+Medium
+</option>
+
+<option value="high">
+High
+</option>
+
+</select>
+
+<input
+type="date"
+id="taskDate">
+
+<button
+type="submit">
+
+Create Task
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
