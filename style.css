@@ -84,7 +84,7 @@ min-height:100vh;
 .sidebar{
 
 background:
-rgba(255,255,255,.7);
+rgba(7, 234, 211, 0.823);
 
 backdrop-filter:
 blur(25px);
@@ -740,7 +740,7 @@ border:
 
 border-radius:16px;
 
-background:none;
+background:var(--surface);
 
 color:var(--text);
 
@@ -837,4 +837,21 @@ width:100%;
 flex-direction:column;
 }
 
+}
+
+/* ===== DROPDOWN VISIBILITY FIX ===== */
+.modal-content select{
+    cursor:pointer;
+    background:var(--surface);
+    color:var(--text);
+}
+
+.modal-content select option{
+    background:#1e293b;
+    color:#ffffff;
+}
+
+body:not(.dark) .modal-content select option{
+    background:#ffffff;
+    color:#0f172a;
 }
