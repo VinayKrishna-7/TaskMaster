@@ -80,5 +80,3 @@ Built with pure HTML, CSS, and JavaScript, the application provides a clean UI, 
 - Google Fonts (Inter)
 
 ---
-
-## 📂 Project Structure
